@@ -9,7 +9,7 @@ import io
 
 
 model = xgb.XGBClassifier()
-model.load_model("xgboost_model.json")
+model.load_model("models/xgboost_model.json")
 
 app = FastAPI()
 
@@ -36,7 +36,7 @@ async def predict_csv(file: UploadFile = File(...)):
 
     return results
 
-model_columns = joblib.load("model_columns.pkl")
+model_columns = joblib.load("models/model_columns.pkl")
 
 class Customer(BaseModel):
     gender: str
